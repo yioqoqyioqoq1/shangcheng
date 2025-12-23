@@ -4,7 +4,7 @@ import HomeBanner from './components/HomeBanner.vue'
 import HomeNew from './components/HomeNew.vue'
 import HomeHot from './components/HomeHot.vue'
 import HomeProduct from './components/HomeProduct.vue'
-import Homepanel from './components/Homepanel.vue'
+
 </script>
 
 <template>
@@ -14,6 +14,6 @@ import Homepanel from './components/Homepanel.vue'
   </div>
   <HomeNew />
   <HomeHot />
-  <homeProduct />
+  <HomeProduct />
  
 </template>
