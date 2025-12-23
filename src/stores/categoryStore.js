@@ -1,6 +1,6 @@
 
 import { ref } from 'vue'
-import { getCategoryAPI } from '@/apis/layout';
+import { getCategoryLayAPI } from '@/apis/layout';
 import { defineStore } from 'pinia';
 
 export const useCategoryStore = defineStore('category', () => {
@@ -9,7 +9,7 @@ export const useCategoryStore = defineStore('category', () => {
 const categoryList = ref([])
 
 const getCategory = async()=>{
-const res =  await getCategoryAPI()
+const res =  await getCategoryLayAPI()
 console.log(res)
 categoryList.value = res.result
 }
