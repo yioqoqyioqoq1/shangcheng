@@ -2,7 +2,7 @@
 
 import { getCategoryAPI } from '@/apis/category';
 import { getBannerAPI } from '@/apis/home';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
  const categoryData = ref({})
@@ -12,8 +12,16 @@ import { useRoute } from 'vue-router';
     console.log(res)
     categoryData.value = res.result
   }
+
+// 组件挂载时获取数据
 onMounted(()=>getCategory())
 
+// 监听路由参数变化，当分类ID变化时重新获取数据
+watch(() => route.params.id, (newId, oldId) => {
+  if (newId && newId !== oldId) {
+    getCategory()
+  }
+})
 
 const bannerList = ref([])
 const getBanner = async () => {
