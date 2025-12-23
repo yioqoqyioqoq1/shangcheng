@@ -15,18 +15,5 @@ import Homepanel from './components/Homepanel.vue'
   <HomeNew />
   <HomeHot />
   <homeProduct />
-
-  <!-- 测试 -->
-   <Homepanel title="xinxian" sub-title="xinxian">
-
-    <div> 
-      woshichacao
-    </div>
-   </Homepanel>
-
-    <Homepanel title="reniqi" sub-title="renqi">
-          <div> 
-      woshichacao
-    </div>
-   </Homepanel>
+ 
 </template>
