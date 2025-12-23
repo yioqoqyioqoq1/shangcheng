@@ -1,5 +1,4 @@
 import http from "@/utils/http";
-
 export function getBannerAPI(params={}){
   const {distributionSite="1"} =params
   return http({

@@ -1,5 +1,6 @@
 {
   "name": "my-rabbit",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -19,10 +20,12 @@
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@vitejs/plugin-vue": "^4.2.3",
-    "eslint": "^8.39.0",
+    "eslint": "^9.39.2",
     "eslint-define-config": "^2.1.0",
-    "eslint-plugin-vue": "^9.11.0",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^16.5.0",
     "sass": "^1.97.1",
     "unplugin-auto-import": "^0.16.7",
     "unplugin-element-plus": "^0.7.1",
