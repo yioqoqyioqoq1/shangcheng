@@ -24,8 +24,11 @@ export default [
       }
     },
     rules: {
-      // 必须有这行，且必须是 'error'
-      'no-undef': 'error', 
+// 0 或者 'off' 表示关闭规则
+    'vue/multi-word-component-names': 'off', 
+    
+    // 如果你之前加了 no-undef，保留它
+    'no-undef': 'error'
     }
   }
 ]
