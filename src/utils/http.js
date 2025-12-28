@@ -1,4 +1,4 @@
-import { useUserStore } from "@/stores/user"
+import { useUserStore } from "@/stores/userStore"
 import axios from "axios"
 import router from '@/router'
 import { ElMessage,  } from 'element-plus'

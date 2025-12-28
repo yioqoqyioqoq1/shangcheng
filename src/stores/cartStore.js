@@ -1,8 +1,8 @@
 // 购物车模块
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-import { useUserStore } from "./user";
-import { findNewCartListAPI, insertCartAPI } from "@/apis/cart";
+import { useUserStore } from "./userStore";
+import { delCartAPI, findNewCartListAPI, insertCartAPI } from "@/apis/cart";
 
 export const useCartStore=defineStore("cart",()=>{
   const cartList=ref([])
@@ -13,8 +13,7 @@ export const useCartStore=defineStore("cart",()=>{
       const {skuId,count}=goods
       // 登录之后的加入购物车逻辑
     await insertCartAPI({skuId,count})
-    const res  = await findNewCartListAPI()
-    cartList.value= res.result
+       updateNewList()
     }else{
    const item = cartList.value.find(item=>item.skuId===goods.skuId)
     // 已添加过count+1 没有添加过直接push
@@ -26,12 +25,26 @@ export const useCartStore=defineStore("cart",()=>{
   }
     }
    
- 
 
-  const delCart =(skuId)=>{
-      const cartListUpdate = cartList.value.filter((item) =>skuId!==item.skuId)
+
+
+  const delCart =async(skuId)=>{
+    if(isLogin.value){
+    await  delCartAPI([skuId])
+      updateNewList()
+    }else{
+  const cartListUpdate = cartList.value.filter((item) =>skuId!==item.skuId)
       cartList.value=cartListUpdate
+    }
+    
   }
+//  获取最新购物车列表action
+const updateNewList=async()=>{
+    const res  = await findNewCartListAPI()
+    cartList.value= res.result
+}
+
+
   const singleCheckMethod=(skuId,selected)=>{
 const item = cartList.value.find(item=>item.skuId===skuId)
 item.selected=selected
