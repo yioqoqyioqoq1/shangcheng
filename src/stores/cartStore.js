@@ -28,13 +28,17 @@ cartList.value.forEach(item=>item.selected=selected)
   const allCount= computed(()=>cartList.value.reduce((a,c)=>a+c.count,0))
   const allPrice= computed(()=>cartList.value.reduce((a,c)=>a+c.count*c.price,0))
   const isAll = computed(()=>cartList.value.every(item=>item.selected))
-
+  // 已选择的数量
+  const selectedCount= computed(()=>cartList.value.filter(item=>item.selected).reduce((a,c)=>a+c.count,0))
+  // 已选择的价格
+  const selectedPrice= computed(()=>cartList.value.filter(item=>item.selected).reduce((a,c)=>a+c.count*c.price,0))
 
 
   return{
     cartList,
     addCart,delCart
-    ,allCount,allPrice,singleCheckMethod,isAll,allCheckMethod
+    ,allCount,allPrice,singleCheckMethod,isAll,allCheckMethod,selectedCount
+    ,selectedPrice,
 
   }
 },{
