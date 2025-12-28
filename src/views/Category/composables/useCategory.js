@@ -1,6 +1,6 @@
 
 import { getCategoryAPI } from "@/apis/category"
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref} from 'vue';
 
 import { onBeforeRouteUpdate, useRoute } from 'vue-router';
 
