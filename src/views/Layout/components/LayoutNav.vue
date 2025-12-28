@@ -6,7 +6,8 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="true">
+        <!-- 多末班渲染 区分登录状态非登录状态 -->
+        <template v-if="false">
           <li><a href="javascript:;"><i class="iconfont icon-user"></i>周杰伦</a></li>
           <li>
             <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
@@ -22,6 +23,7 @@
          
           <li><a href="javascript:;">帮助中心</a></li>
           <li><a href="javascript:;">关于我们</a></li>
+          <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
         </template>
       </ul>
     </div>
