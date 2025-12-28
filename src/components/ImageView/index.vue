@@ -30,7 +30,7 @@ const top = ref(0)
 const positionX = ref(0)
 const positionY = ref(0);
 watch([elementX, elementY,isOutside], () => {
-    console.log('xy变化了');
+ 
   if(isOutside.value){
     return 
   }
