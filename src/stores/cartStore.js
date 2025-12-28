@@ -13,9 +13,15 @@ if(item){
   cartList.value.push(goods)
 }
   }
+
+  const delCart =(skuId)=>{
+      const cartListUpdate = cartList.value.filter((item) =>skuId!==item.skuId)
+      cartList.value=cartListUpdate
+  }
   return{
     cartList,
-    addCart
+    addCart,delCart
+
   }
 },{
   persist:true
