@@ -20,6 +20,7 @@ const rules = {
   agree: [
     {
       validator: (rule, val, callback) => {
+        console.log(val)
         return val ? callback() : new Error('请先同意协议')
       }
     }
@@ -59,8 +60,8 @@ const rules = {
               <el-form-item label="密码" prop="password">
                 <el-input  v-model="form.password"/>
               </el-form-item>
-              <el-form-item label-width="22px">
-                <el-checkbox  size="large">
+              <el-form-item prop="agree" label-width="22px">
+                <el-checkbox  v-model="form.agree" size="large">
                   我已同意隐私条款和服务条款
                 </el-checkbox>
               </el-form-item>
