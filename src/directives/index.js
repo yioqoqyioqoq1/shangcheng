@@ -1,29 +1,8 @@
-// 定义懒加载插件
-
-import {useIntersectionObserver} from "@vueuse/core";
-
-export const lazyPlugin={
-    install(app) {
-        // 懒加载指令逻辑
-        app.directive('img-lazy',{
-            mounted(el, bingding) {
-                // el:指令绑定的那个元素img
-                // binding:bingding.value 指令等于号后面绑定的表达式的值 图片URL
-           
-
-                const {stop}=useIntersectionObserver(
-                    el,
-                    ([{isIntersecting}])=>{
-                       
-                        if (isIntersecting) {
-                            // 进入视口区域
-                            el.src=bingding.value
-                            // 第一次加载后就停止监听
-                            stop()
-                        }
-                    }
-                )
-            },
-        })
-    },
+ import {lazyPlugin} from './Lazy'
+ export const directivePlugin = {
+  // install 方法会自动接收 app 实例
+  install(app) {
+    // 在这里统一注册所有指令
+    app.directive('img-lazy', lazyPlugin)
+  }
 }
