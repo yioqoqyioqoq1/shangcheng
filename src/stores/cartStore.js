@@ -22,13 +22,19 @@ if(item){
 const item = cartList.value.find(item=>item.skuId===skuId)
 item.selected=selected
   }
-
+const allCheckMethod=(selected)=>{
+cartList.value.forEach(item=>item.selected=selected)
+}
   const allCount= computed(()=>cartList.value.reduce((a,c)=>a+c.count,0))
   const allPrice= computed(()=>cartList.value.reduce((a,c)=>a+c.count*c.price,0))
+  const isAll = computed(()=>cartList.value.every(item=>item.selected))
+
+
+
   return{
     cartList,
     addCart,delCart
-    ,allCount,allPrice,singleCheckMethod
+    ,allCount,allPrice,singleCheckMethod,isAll,allCheckMethod
 
   }
 },{
