@@ -18,13 +18,17 @@ if(item){
       const cartListUpdate = cartList.value.filter((item) =>skuId!==item.skuId)
       cartList.value=cartListUpdate
   }
+  const singleCheckMethod=(skuId,selected)=>{
+const item = cartList.value.find(item=>item.skuId===skuId)
+item.selected=selected
+  }
 
   const allCount= computed(()=>cartList.value.reduce((a,c)=>a+c.count,0))
   const allPrice= computed(()=>cartList.value.reduce((a,c)=>a+c.count*c.price,0))
   return{
     cartList,
     addCart,delCart
-    ,allCount,allPrice
+    ,allCount,allPrice,singleCheckMethod
 
   }
 },{
