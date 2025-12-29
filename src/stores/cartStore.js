@@ -69,7 +69,7 @@ const clearCart=()=>{
     cartList,
     addCart,delCart
     ,allCount,allPrice,singleCheckMethod,isAll,allCheckMethod,selectedCount
-    ,selectedPrice,clearCart,
+    ,selectedPrice,clearCart,updateNewList
 
   }
 },{
