@@ -20,9 +20,9 @@ const skuChange = (sku) => {
   console.log(sku)
   skuObj.value = sku
 }
-const addCart=()=>{
+const addCart=async ()=>{
 if(skuObj.value.skuId){
-  cartStore.addCart(
+ await cartStore.addCart(
     {
        id:goods.value.id,
       name:goods.value.name,
@@ -34,6 +34,7 @@ if(skuObj.value.skuId){
       selected: true,
     }
   )
+  ElMessage.success("成功加入购物车")
 }else{
   ElMessage.warning("请选择规格")
 }
