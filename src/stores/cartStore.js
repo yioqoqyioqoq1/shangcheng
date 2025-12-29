@@ -2,7 +2,7 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 import { useUserStore } from "./userStore";
-import { delCartAPI, findNewCartListAPI, insertCartAPI } from "@/apis/cart";
+import {  delCartAPI, findNewCartListAPI, insertCartAPI } from "@/apis/cart";
 
 export const useCartStore=defineStore("cart",()=>{
   const cartList=ref([])
@@ -45,13 +45,17 @@ const updateNewList=async()=>{
 }
 
 
-  const singleCheckMethod=(skuId,selected)=>{
+  const singleCheckMethod=async(skuId,selected)=>{
 const item = cartList.value.find(item=>item.skuId===skuId)
 item.selected=selected
+
   }
-const allCheckMethod=(selected)=>{
+
+const allCheckMethod=async(selected)=>{
 cartList.value.forEach(item=>item.selected=selected)
+
 }
+
 // 清除购物车
 const clearCart=()=>{
   cartList.value=[]
