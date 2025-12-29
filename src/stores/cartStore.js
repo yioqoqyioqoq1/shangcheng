@@ -52,6 +52,10 @@ item.selected=selected
 const allCheckMethod=(selected)=>{
 cartList.value.forEach(item=>item.selected=selected)
 }
+// 清除购物车
+const clearCart=()=>{
+  cartList.value=[]
+}
   const allCount= computed(()=>cartList.value.reduce((a,c)=>a+c.count,0))
   const allPrice= computed(()=>cartList.value.reduce((a,c)=>a+c.count*c.price,0))
   const isAll = computed(()=>cartList.value.every(item=>item.selected))
@@ -65,7 +69,7 @@ cartList.value.forEach(item=>item.selected=selected)
     cartList,
     addCart,delCart
     ,allCount,allPrice,singleCheckMethod,isAll,allCheckMethod,selectedCount
-    ,selectedPrice,
+    ,selectedPrice,clearCart,
 
   }
 },{
