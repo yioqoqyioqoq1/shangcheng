@@ -12,3 +12,13 @@ export const loginAPI = ({account, password}) => {
         }
     })
 }
+
+//  封装猜你喜欢接口
+export const getLikeListAPI = ({ limit = 4 }) => {
+  return http({
+    url:'/goods/relevant',
+    params: {
+      limit 
+    }
+  })
+}
