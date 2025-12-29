@@ -35,6 +35,12 @@ console.log(type)
 params.value.orderState=type
 getOrderList()
 }
+
+// 页数切换
+const pageChange=(page)=>{
+params.value.page =page
+getOrderList()
+}
 </script>
 
 <template>
@@ -116,8 +122,10 @@ getOrderList()
             </div>
           </div>
           <!-- 分页 -->
-          <div class="pagination-container">
-            <el-pagination background layout="prev, pager, next" />
+          <div class="pagination-container" >
+            <el-pagination background layout="prev, pager, next" :total="total"  :page-size="params.pageSize"
+            @current-change="pageChange"
+            />
           </div>
         </div>
       </div>
