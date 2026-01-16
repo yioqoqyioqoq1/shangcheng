@@ -10,13 +10,31 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      // 启用响应式语法糖
+      reactivityTransform: true
+    }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      // 自动导入常用API
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia',
+        {
+          '@vueuse/core': [
+            'useMouse',
+            'useLocalStorage',
+            'useDebounceFn'
+          ]
+        }
+      ],
+      dts: true
     }),
     Components({
       resolvers: [ElementPlusResolver({importStyle:"sass"})],
-    }),
+      dts: true
+    })
   ],
   resolve: {
     alias: {
@@ -32,6 +50,11 @@ export default defineConfig({
           @use "@/styles/var.scss" as *;
         `,
       }
+    },
+    // CSS优化 - 使用Vite内置压缩
+    devSourcemap: false,
+    modules: {
+      localsConvention: 'camelCase'
     }
   }
 })

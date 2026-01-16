@@ -7,8 +7,7 @@ export const lazyPlugin={
             mounted(el, bingding) {
                 // el:指令绑定的那个元素img
                 // binding:bingding.value 指令等于号后面绑定的表达式的值 图片URL
-           
-
+                
                 const {stop}=useIntersectionObserver(
                     el,
                     ([{isIntersecting}])=>{

@@ -9,7 +9,7 @@ const getNewList = async () => {
 }
 onMounted(()=>
 getNewList()
-) 
+)
 </script>
 
 <template>
