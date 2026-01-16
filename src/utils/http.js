@@ -6,7 +6,7 @@ import 'element-plus/theme-chalk/el-message.css'
 
 // 创建axios实例
 const http = axios.create({
-  baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
+baseURL: 'https://pcapi-xiaotuxian-front-devtest.itheima.net',
   timeout: 50000
 })
 
